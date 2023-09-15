@@ -1,8 +1,34 @@
 document.getElementById("btn-sim").addEventListener("click", alerta);
 const nao = document.getElementById("btn-nao");
-nao.addEventListener("mouseenter", entrar);
 
+var largura = window.innerWidth;
+    console.log(largura)
+    if (largura < 500) 
+        nao.addEventListener("click", alertaNao)
+    else{
+        nao.addEventListener("mouseenter", entrar);
+    }
 
+let countNAO = 0;
+
+function alertaNao(){
+    countNAO++
+    if(countNAO == 1){
+        nao.style.opacity="0.5";
+        alert("ERRO ao contabilizar a resposta , tente novamente!");
+        console.log(countNAO)
+    }
+    if(countNAO == 2){
+        nao.style.opacity="0.3";
+        alert("ERRO ao contabilizar a resposta , tente novamente!");
+        console.log(countNAO)
+    }
+    if(countNAO == 3){
+        nao.style.opacity="0";
+        alert("ERRO ao contabilizar a resposta , tente novamente!");
+        console.log(countNAO)
+    }
+}
 
 function alerta(){
     alert("HUMMM, ENTÃO VOCE ESTÀ INTERESSADA !");
